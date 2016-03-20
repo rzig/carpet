@@ -29,7 +29,7 @@ module Carpet
     def self.load_parser(parser_name)
       parser_path = Rails.root.join('mdrenderers', "#{parser_name.to_s}.rb")
       load parser_path
-      parser = eval("Redcarpet::Render::HTML::#{parser_name.to_s.camelize}")
+      parser = eval("Redcarpet::Render::HTML::#{parser_name.to_s.camelize}.new")
       return parser
     end
   end # End the parsing module.
