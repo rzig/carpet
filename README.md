@@ -5,7 +5,7 @@ Welcome to carpet. The idea of this gem is to provide redcarpet markdown parsing
 Add ```ruby
 redcarpet_field :field_name
 ```
-to your model. You can access the generated markdown for this field by calling ```ruby yourmodel.parsed_field_name```.
+to your model. You can access the generated markdown for this field by calling ```ruby yourmodel.parsed_fieldname```.
 
 ## Installation
 Add this line to your application's Gemfile:
