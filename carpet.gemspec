@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Carpet::VERSION
   s.authors     = ["railsrocks"]
   s.email       = ["railsrocks@users.noreply.github.com"]
-  # s.homepage    = "github.com/railsrocks/Carpet"
+  s.homepage    = "https://github.com/railsrocks/Carpet"
   # s.summary     = "Use redcarpet to render fields in a model."
   # s.description = "Use redcarpet to render fields in a model, to make your code dry."
   s.license     = "MIT"
