@@ -8,6 +8,8 @@ class Carpet::Test < ActiveSupport::TestCase
     assert_kind_of Module, Carpet::RedcarpetField
   end
   test "it should be called in the model" do
-    
+    Person.delete_all
+    david = Person.create(name: "david", about: "genius programmer")
+    david.parsed_name
   end
 end
