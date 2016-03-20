@@ -22,4 +22,9 @@ class Carpet::Test < ActiveSupport::TestCase
     david = Person.create(name: david, about: "[genius programmer](google.com)")
     assert_equal "<p>[genius programmer](google.com)</p>\n", david.parsed_about
   end
+  test "a custom parser can be used" do
+    Person.delete_all
+    david = Person.create(name: david, about: "- something")
+    assert_equal "<ul><li><input type='checkbox'>something</li></ul>\n", david.about
+  end
 end
