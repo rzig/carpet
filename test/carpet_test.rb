@@ -10,6 +10,11 @@ class Carpet::Test < ActiveSupport::TestCase
   test "it should be called in the model" do
     Person.delete_all
     david = Person.create(name: "david", about: "genius programmer")
-    david.parsed_name
+    david.parsed_about
+  end
+  test "it should convert text" do
+    Person.delete_all
+    david = Person.create(name: "david", about: "*genius programmer*")
+    assert_equal "<p><em>genius programmer</em></p>\n", david.parsed_about
   end
 end

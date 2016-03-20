@@ -1,3 +1,3 @@
 class Person < ApplicationRecord
-  redcarpet_field :name
+  redcarpet_field :about
 end
