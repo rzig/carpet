@@ -2,7 +2,8 @@
 Welcome to carpet. The idea of this gem is to provide redcarpet markdown parsing in model fields. This prevents you from having to call redcarpet in a controller or model a bunch of times, which is not very dry.
 
 ## Usage
-Add ```ruby
+Add 
+```ruby
   redcarpet_field :field_name
 ```
 to your model. If you want to add some renderer options, just put them in like this:
