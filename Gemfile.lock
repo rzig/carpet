@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     carpet (0.1.0)
-      rails (>= 5.0.0.beta3, < 5.1)
+      rails (>= 4.2.0, < 5.1)
       redcarpet (>= 3.0.0)
 
 GEM

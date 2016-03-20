@@ -6,7 +6,7 @@ module Carpet
     extend ActiveSupport::Concern
     ## The methods that are found in the model.
     module ClassMethods
-      def redcarpet_field(*fields, render_opts: {}, renderer: :default)
+      def redcarpet(*fields, render_opts: {}, renderer: :default)
         fields.each do |field|
           define_method "rendered_#{field}" do
             # This is the method seen in the model. So it maight be parsed_name
@@ -14,7 +14,7 @@ module Carpet
             Carpet::Parsing.parse(read_attribute(field), render_opts: render_opts, parser: renderer).html_safe
           end # End defining the method dynamically.
         end # End the fields loop.
-      end # End the redcarpet_field method.
+      end # End the redcarpet method.
     end # End the class methods module.
   end # End the redcarpetfield module.
   module Parsing
