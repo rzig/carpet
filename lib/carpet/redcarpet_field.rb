@@ -11,7 +11,7 @@ module Carpet
           define_method "rendered_#{field}" do
             # This is the method seen in the model. So it maight be parsed_name
             # or something.
-            Carpet::Parsing.parse(read_attribute(field), render_opts: render_opts, parser: renderer)
+            Carpet::Parsing.parse(read_attribute(field), render_opts: render_opts, parser: renderer).html_safe
           end # End defining the method dynamically.
         end # End the fields loop.
       end # End the redcarpet_field method.
