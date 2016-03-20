@@ -25,17 +25,12 @@ To use this renderer in your model, call it like this:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'carpet'
+gem 'carpet', git: "git://github.com/railsrocks/Carpet.git"
 ```
 
 And then execute:
 ```bash
 $ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install carpet
 ```
 ## Contributing
 Feel free to make a pull request!
