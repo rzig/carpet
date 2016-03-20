@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["railsrocks"]
   s.email       = ["railsrocks@users.noreply.github.com"]
   s.homepage    = "github.com/railsrocks/Carpet"
-  s.summary     = "Use redcarpet to render fields in a model."
-  s.description = "Use redcarpet to render fields in a model, to make your code dry."
+  # s.summary     = "Use redcarpet to render fields in a model."
+  # s.description = "Use redcarpet to render fields in a model, to make your code dry."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
