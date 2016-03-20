@@ -17,4 +17,9 @@ class Carpet::Test < ActiveSupport::TestCase
     david = Person.create(name: "david", about: "*genius programmer*")
     assert_equal "<p><em>genius programmer</em></p>\n", david.parsed_about
   end
+  test "when specified, it should not render links" do
+    Person.delete_all
+    david = Person.create(name: david, about: "[genius programmer](google.com)")
+    assert_equal "<p>[genius programmer](google.com)</p>\n", david.parsed_about
+  end
 end
