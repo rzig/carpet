@@ -10,21 +10,16 @@ class Carpet::Test < ActiveSupport::TestCase
   test "it should be called in the model" do
     Person.delete_all
     david = Person.create(name: "david", about: "genius programmer")
-    david.parsed_about
+    david.rendered_about
   end
   test "it should convert text" do
     Person.delete_all
     david = Person.create(name: "david", about: "*genius programmer*")
-    assert_equal "<p><em>genius programmer</em></p>\n", david.parsed_about
+    assert_equal "<p><em>genius programmer</em></p>\n", david.rendered_about
   end
   test "when specified, it should not render links" do
     Person.delete_all
     david = Person.create(name: david, about: "[genius programmer](google.com)")
-    assert_equal "<p>[genius programmer](google.com)</p>\n", david.parsed_about
-  end
-  test "a custom parser can be used" do
-    Person.delete_all
-    david = Person.create(name: david, about: "- something")
-    assert_equal "<ul><li><input type='checkbox'>something</li></ul>\n", david.about
+    assert_equal "<p>[genius programmer](google.com)</p>\n", david.rendered_about
   end
 end
