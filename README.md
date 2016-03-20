@@ -10,7 +10,7 @@ to your model. If you want to add some renderer options, just put them in like t
 ```ruby
   redcarpet_field :field_name, render_opts: {option: value}
 ```
-You can access the generated markdown for this field by calling ```ruby yourmodel.parsed_fieldname```.
+You can access the generated markdown for this field by calling ```yourmodel.parsed_fieldname```.
 
 If you want to use your own custom redcarpet renderer, run:
 ```bash
