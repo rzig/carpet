@@ -21,7 +21,7 @@ module Carpet
     def self.render(text, render_opts: {}, md_renderer: :default)
       renderer = Redcarpet::Render::HTML.new(render_opts)
       if md_renderer != :default
-        renderer = load_renderer(renderer, render_opts)
+        renderer = load_renderer(md_renderer, render_opts)
       end
       markdown = Redcarpet::Markdown.new(renderer)
       markdown.render text

@@ -19,7 +19,12 @@ class Carpet::Test < ActiveSupport::TestCase
   end
   test "when specified, it should not render links" do
     Person.delete_all
-    david = Person.create(name: david, about: "[genius programmer](google.com)")
+    david = Person.create(name: "david", about: "[genius programmer](google.com)")
     assert_equal "<p>[genius programmer](google.com)</p>\n", david.rendered_about
+  end
+  test "the name of a person should have stars" do
+    Person.delete_all
+    david = Person.create(name: "david", about: "[genius programmer](google.com)")
+    assert_equal "*david*", david.rendered_name
   end
 end
