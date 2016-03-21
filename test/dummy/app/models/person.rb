@@ -1,4 +1,4 @@
 class Person < ApplicationRecord
-  redcarpet :about, render_opts: {no_links: true}
-  redcarpet :name, renderer: :simple_parser
+  redcarpetable :about, render_opts: {no_links: true}
+  redcarpetable :name, renderer: :simple_parser
 end

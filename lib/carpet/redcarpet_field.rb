@@ -6,22 +6,22 @@ module Carpet
     extend ActiveSupport::Concern
     ## The methods that are found in the model.
     module ClassMethods
-      def redcarpet(*fields, render_opts: {}, renderer: :default)
+      def redcarpetable(*fields, render_opts: {}, renderer: :default)
         fields.each do |field|
           define_method "rendered_#{field}" do
             # This is the method seen in the model. So it might be rendered_name
             # or something.
-            Carpet::Rendering.render(read_attribute(field), render_opts: render_opts, md_renderer: renderer).html_safe
+            Carpet::Rendering.render(read_attribute(field), render_opts: render_opts, rc_renderer: renderer).html_safe
           end # End defining the method dynamically.
         end # End the fields loop.
       end # End the redcarpet method.
     end # End the class methods module.
   end # End the redcarpetfield module.
   module Rendering
-    def self.render(text, render_opts: {}, md_renderer: :default)
+    def self.render(text, render_opts: {}, rc_renderer: :default)
       renderer = Redcarpet::Render::HTML.new(render_opts)
-      if md_renderer != :default
-        renderer = load_renderer(md_renderer, render_opts)
+      if rc_renderer != :default
+        renderer = load_renderer(rc_renderer, render_opts)
       end
       markdown = Redcarpet::Markdown.new(renderer)
       markdown.render text
