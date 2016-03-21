@@ -25,11 +25,16 @@ class Carpet::Test < ActiveSupport::TestCase
   test "the name of a person should have stars" do
     Person.delete_all
     david = Person.create(name: "david", about: "[genius programmer](google.com)")
-    assert_equal "*david*", david.cool_name
+    assert_equal "*david*", david.rendered_name
   end
   test "the method should be customiseable" do
     Person.delete_all
     david = Person.create(name: "david", about: "[genius programmer](google.com)")
     assert_equal "*david*", david.cool_name
+  end
+  test "multiple as values can be specified" do
+    Person.delete_all
+    david = Person.create(name: "david", about: "[genius programmer](google.com)")
+    assert_equal david.rendered_name, david.cool_name
   end
 end

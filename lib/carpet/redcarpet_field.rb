@@ -6,17 +6,19 @@ module Carpet
     extend ActiveSupport::Concern
     ## The methods that are found in the model.
     module ClassMethods
-      def redcarpetable(*fields, render_opts: {}, renderer: :default, as: nil, prefix: "rendered")
+      def redcarpetable(*fields, render_opts: {}, renderer: :default, as: [nil], prefix: "rendered")
         fields.each do |field|
           if fields.count > 1
             define_method "#{prefix}_#{field}" do
             Carpet::Rendering.render(read_attribute(field), render_opts: render_opts, rc_renderer: renderer).html_safe
             end # End defining the method dynamically.
           else
-            if as
-              define_method "#{as}" do
-              Carpet::Rendering.render(read_attribute(field), render_opts: render_opts, rc_renderer: renderer).html_safe
-              end # End defining the method dynamically.
+            if as[0]
+              as.each do |method_name|
+                define_method "#{method_name}" do
+                Carpet::Rendering.render(read_attribute(field), render_opts: render_opts, rc_renderer: renderer).html_safe
+                end # End defining the method dynamically.
+              end
             else
               define_method "rendered_#{field}" do
               Carpet::Rendering.render(read_attribute(field), render_opts: render_opts, rc_renderer: renderer).html_safe
