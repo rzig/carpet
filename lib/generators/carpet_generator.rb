@@ -4,6 +4,6 @@ class CarpetGenerator < Rails::Generators::NamedBase
   source_root File.expand_path("../templates", __FILE__)
 
   def create_initializer_file
-    template "parser.rb.erb", "mdparsers/#{name}.rb"
+    template "parser.rb.erb", "app/redcarpet_renderers/#{name}.rb"
   end
 end
