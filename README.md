@@ -4,11 +4,11 @@ Welcome to carpet. The idea of this gem is to provide redcarpet markdown parsing
 ## Usage
 Add
 ```ruby
-  redcarpet :field_name
+  redcarpetable :field_name
 ```
 to your model. If you want to add some renderer options, just put them in like this:
 ```ruby
-  redcarpet :field_name, render_opts: {option: value}
+  redcarpetable :field_name, render_opts: {option: value}
 ```
 You can access the generated markdown for this field by calling ```ruby yourmodel.rendered_fieldname```.
 
@@ -18,7 +18,7 @@ $ rails g carpet renderer_name
 ```
 To use this renderer in your model, call it like this:
 ```ruby
-  redcarpet :field_name, renderer: :your_renderer_name
+  redcarpetable :field_name, renderer: :your_renderer_name
 ```
 
 ## Installation
