@@ -25,7 +25,7 @@ To use this renderer in your model, call it like this:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'carpet', git: "git://github.com/railsrocks/Carpet.git"
+gem 'carpet', git: "git://github.com/railsrocks/carpet.git"
 ```
 
 And then execute:
