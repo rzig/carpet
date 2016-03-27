@@ -6,7 +6,7 @@ module Carpet
     extend ActiveSupport::Concern
     ## The methods that are found in the model.
     module ClassMethods
-      def redcarpetable(*fields, renderer: :default, as: [nil], prefix: "rendered", render_opts: [])
+      def redcarpetable(*fields, renderer: :default, as: [nil], prefix: "rendered", render_opts: {})
         fields.each do |field|
           if fields.count > 1
             define_method "#{prefix}_#{field}" do
