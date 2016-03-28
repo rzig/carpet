@@ -1,5 +1,5 @@
 # Carpet
-Welcome to carpet. This gem allows you to render fields of a model with [redcarpet](https://github.com/vmg/redcarpet). Instead of having to write a custom method in your model or controller, you can implement the rendering in one line.
+Welcome to Carpet. This gem allows you to render fields of a model with [Redcarpet](https://github.com/vmg/redcarpet). Instead of having to write a custom method in your model or controller to render a model's field with Redcarpet, Carpet allows you to do it in one line.
 
 ## Installation
 Carpet is a Ruby on Rails plugin. To start using Carpet, add the following line to your application's Gemfile:
