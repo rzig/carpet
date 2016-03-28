@@ -1,40 +1,72 @@
 # Carpet
-Welcome to carpet. The idea of this gem is to provide redcarpet markdown parsing in model fields. This prevents you from having to call redcarpet in a controller or model a bunch of times, which is not very dry.
+Welcome to carpet. This gem allows you to render fields of a model with [redcarpet](https://github.com/vmg/redcarpet). Instead of having to write a custom method in your model or controller, you can implement the rendering in one line.
+
+## Installation
+Carpet is a Ruby on Rails plugin. To start using Carpet, add the following line to your application's Gemfile:
+```ruby
+  gem 'carpet', git: "git://github.com/railsrocks/carpet.git"
+```
+Now, execute:
+```bash
+  $ bundle
+```
+Congratulations! You're all ready to start using Carpet.
 
 ## Usage
-Add
+Carpet is designed to be simple to use, but has many options available. The simplest way of using Carpet will be to add the following line to your model:
 ```ruby
   redcarpetable :field_name
 ```
-to your model. If you want to add some renderer options, just put them in like this:
+This will render whatever field you passed in with the standard Redcarpet HTML renderer. If you want to specify multiple fields to render, separate them with commas, like this:
 ```ruby
-  redcarpetable :field_name, render_opts: {option: value}
+  redcarpetable :field_name, :another_field_name, :yet_another_field_name
 ```
-You can access the generated markdown for this field by calling 
+Redcarpet also allows you to pass a set of options to the renderer. To specify these options, add a ```render_opts``` hash to your model, like so:
 ```ruby
-yourmodel.rendered_fieldname
+  redcarpetable :field_name, render_opts: {some_option: some_value}
 ```
-
-If you want to use your own custom redcarpet renderer, run:
+If you specified multiple fields in the same line, the render options will apply to all of them. If you need different render options for each field, you will have to make a new line for that field.
+To access the rendered content for a field, use the following statement:
+```ruby
+  yourmodel.rendered_field_name
+```
+If you need to customize the name of that method, specify an array of names, like ths:
+```ruby
+  redcarpetable :field_name, as: [:some_name, :some_other_name]
+```
+So, then you would say:
+```ruby
+  yourmodel.some_other_name
+```
+or:
+```ruby
+  yourmodel.some_name
+```
+If you have specified multiple fields in one line, it is not possible to change the name of the method that provides the rendered field. However, the prefix for that method can be set like this:
+```ruby
+  redcarpetable :field_name, :another_field_name, prefixes: ["cool", "rendered"]
+```
+So, then the rendered content of those two fields is available through:
+```ruby
+  yourmodel.cool_field_name
+  yourmodel.cool_another_field_name
+```
+and:
+```ruby
+  yourmodel.rendered_field_name
+  yourmodel.rendered_another_field_name
+```
+To use a custom Redcarpet renderer instead of the default one in your model, it must be generated with the following command:
 ```bash
-$ rails g carpet renderer_name
+  $ rails generate carpet your_renderer_name
 ```
-To use this renderer in your model, call it like this:
+This will create a skeletal renderer in app/redcarpet_renderers/your_renderer_name.rb
+To use this renderer instead of the default one in a model, add the following line:
 ```ruby
   redcarpetable :field_name, renderer: :your_renderer_name
 ```
+If you need help, feel free to post a question on the repository.
 
-## Installation
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'carpet', git: "git://github.com/railsrocks/carpet.git"
-```
-
-And then execute:
-```bash
-$ bundle
-```
 ## Contributing
 Feel free to make a pull request!
 
