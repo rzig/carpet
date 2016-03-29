@@ -25,11 +25,11 @@ Redcarpet also allows you to pass a set of options to the renderer. To specify t
 ```ruby
   redcarpetable :field_name, render_opts: {some_option: some_value}
 ```
-If you specified multiple fields in the same line, the render options will apply to all of them. If you need different render options for each field, you will have to make a new line for that field.
 To access the rendered content for a field, use the following statement:
 ```ruby
   yourmodel.rendered_field_name
 ```
+If you specified multiple fields in the same line, the render options will apply to all of them. If you need different render options for each field, you will have to make a new line for that field.
 If you need to customize the name of that method, specify an array of names, like ths:
 ```ruby
   redcarpetable :field_name, as: [:some_name, :some_other_name]
@@ -56,15 +56,7 @@ and:
   yourmodel.rendered_field_name
   yourmodel.rendered_another_field_name
 ```
-To use a custom Redcarpet renderer instead of the default one in your model, it must be generated with the following command:
-```bash
-  $ rails generate carpet your_renderer_name
-```
-This will create a skeletal renderer in app/redcarpet_renderers/your_renderer_name.rb
-To use this renderer instead of the default one in a model, add the following line:
-```ruby
-  redcarpetable :field_name, renderer: :your_renderer_name
-```
+If you want to use your own Redcarpet renderer, see [this guide](https://github.com/railsrocks/carpet/wiki/Generate-a-Custom-Renderer). More examples are available at [the wiki examples page](https://github.com/railsrocks/carpet/wiki/Examples).
 If you need help, feel free to post a question on the repository.
 
 ## Contributing
