@@ -9,9 +9,11 @@ module Carpet
       def redcarpetable(*fields, renderer: :default, as: [nil], prefixes: ["rendered"], render_opts: {})
         fields.each do |field|
           if fields.count > 1
-            define_method "#{prefix}_#{field}" do
-            Carpet::Rendering.render(read_attribute(field), renderer_opts: render_opts, rc_renderer: renderer).html_safe
-            end # End defining the method dynamically.
+            prefixes.each do |prefix|
+              define_method "#{prefix}_#{field}" do
+              Carpet::Rendering.render(read_attribute(field), renderer_opts: render_opts, rc_renderer: renderer).html_safe
+              end # End defining the method dynamically.
+            end
           else
             if as[0]
               as.each do |method_name|
