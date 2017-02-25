@@ -63,7 +63,7 @@ and:
   yourmodel.rendered_field_name
   yourmodel.rendered_another_field_name
 ```
-If you want to use your own Redcarpet renderer, see [this guide](https://github.com/railsrocks/carpet/wiki/Generate-a-Custom-Renderer). More examples are available at [the wiki examples page](https://github.com/railsrocks/carpet/wiki/Examples).
+If you want to use your own Redcarpet renderer, see [this guide](https://github.com/rzig/carpet/wiki/Generate-a-Custom-Renderer). More examples are available at [the wiki examples page](https://github.com/rzig/carpet/wiki/Examples).
 If you need help, feel free to post a question on the repository.
 
 ## Contributing
