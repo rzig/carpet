@@ -4,7 +4,7 @@ Welcome to Carpet. This gem allows you to render fields of a model with [Redcarp
 ## Installation
 Carpet is a Ruby on Rails plugin. To start using Carpet, add the following line to your application's Gemfile:
 ```ruby
-  gem 'carpet', git: "git://github.com/railsrocks/carpet.git"
+  gem 'carpet', git: "git://github.com/rzig/carpet.git"
 ```
 Now, execute:
 ```bash
