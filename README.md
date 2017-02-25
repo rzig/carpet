@@ -17,24 +17,29 @@ Carpet is designed to be simple to use, but has many options available. The simp
 ```ruby
   redcarpetable :field_name
 ```
-This will render whatever field you passed in with the standard Redcarpet HTML renderer. If you want to specify multiple fields to render, separate them with commas, like this:
+This will render whatever field you provided with the standard [Redcarpet HTML renderer](https://github.com/vmg/redcarpet#darling-i-packed-you-a-couple-renderers-for-lunch). If you want to specify multiple fields to render, separate them with commas, like this:
 ```ruby
   redcarpetable :field_name, :another_field_name, :yet_another_field_name
 ```
-Redcarpet also allows you to pass a set of options to the renderer. To specify these options, add a ```render_opts``` hash to your model, like so:
+
+### Options
+Redcarpet also allows you to pass a set of options to the renderer (these can be any standard Redcarpet options). To specify these options, add a ```render_opts``` hash to the line, like so:
 ```ruby
   redcarpetable :field_name, render_opts: {some_option: some_value}
 ```
+If you specify multiple fields in the same line, the render options will apply to all of them. If you need different render options for each field, you will have to make a new line for each field.
+
 To access the rendered content for a field, use the following statement:
 ```ruby
   yourmodel.rendered_field_name
 ```
-If you specified multiple fields in the same line, the render options will apply to all of them. If you need different render options for each field, you will have to make a new line for that field.
-If you need to customize the name of that method, specify an array of names, like ths:
+
+### Aliases
+If you need to customize the name the method that provides the rendered Markdown, specify an array of alternative names, like this:
 ```ruby
   redcarpetable :field_name, as: [:some_name, :some_other_name]
 ```
-So, then you would say:
+So, then you could say:
 ```ruby
   yourmodel.some_other_name
 ```
@@ -42,6 +47,8 @@ or:
 ```ruby
   yourmodel.some_name
 ```
+
+### Prefixes
 If you have specified multiple fields in one line, it is not possible to change the name of the method that provides the rendered field. However, the prefix for that method can be set like this:
 ```ruby
   redcarpetable :field_name, :another_field_name, prefixes: ["cool", "rendered"]
